@@ -28,6 +28,11 @@ typedef void (^KVNCompletionBlock)(void);
 #pragma mark - Configuration
 
 /**
+ expose control externally so determine current style
+ **/
++ (KVNProgress *)sharedView;
+
+/**
  Configuration of the <code>KVNProgress</code> UI.
  By default, equals to <code>[KVNProgressConfiguration defaultConfiguration]</code>.
  */
