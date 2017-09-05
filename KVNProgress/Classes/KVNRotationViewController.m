@@ -19,6 +19,17 @@
 	return UIInterfaceOrientationMaskAll;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+	UIViewController *currentVc = UIApplication.sharedApplication.delegate.window.rootViewController;
+	UIViewController *newTopVc = currentVc;
+	while (newTopVc) {
+		currentVc = newTopVc;
+		newTopVc = currentVc.childViewControllerForStatusBarStyle;
+	}
+	
+	return currentVc.preferredStatusBarStyle;
+}
+
 - (BOOL)shouldAutorotate
 {
 	return YES;
